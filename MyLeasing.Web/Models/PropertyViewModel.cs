@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
-using MyLeasing.Web.Data.Entities;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using MyLeasing.Web.Data.Entities;
 
 namespace MyLeasing.Web.Models
 {
