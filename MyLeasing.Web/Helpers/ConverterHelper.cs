@@ -47,7 +47,7 @@ namespace MyLeasing.Web.Helpers
                 Price = contract.Price,
                 Property = contract.Property,
                 Remarks = contract.Remarks,
-                StartDate = contract.StartDate.ToUniversalTime(),
+                StartDate = contract.StartDateLocal,
                 LesseeId = contract.Lessee.Id,
                 Lessees = _combosHelper.GetComboLessees(),
                 OwnerId = contract.Owner.Id,
