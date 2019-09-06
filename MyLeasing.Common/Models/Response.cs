@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace MyLeasing.Common.ViewModels
+﻿namespace MyLeasing.Common.ViewModels
 {
     public class Response<T> where T : class
     {
