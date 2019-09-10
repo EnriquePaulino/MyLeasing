@@ -79,7 +79,10 @@ namespace MyLeasing.Prism.ViewModels
             {
                 IsEnabled = true;
                 IsRunning = false;
-                await App.Current.MainPage.DisplayAlert("Error", "Check the internet connection.", "Accept");
+                await App.Current.MainPage.DisplayAlert(
+                    "Error", 
+                    "Check the internet connection.", 
+                    "Accept");
                 return;
             }
 
@@ -89,13 +92,19 @@ namespace MyLeasing.Prism.ViewModels
                 Username = Email
             };
 
-            var response = await _apiService.GetTokenAsync(url, "Account", "/CreateToken", request);
+            var response = await _apiService.GetTokenAsync(
+                url, 
+                "Account", 
+                "/CreateToken", request);
 
             if (!response.IsSuccess)
             {
                 IsEnabled = false;
                 IsRunning = true;
-                await App.Current.MainPage.DisplayAlert("Error", "User or password incorrect.", "Accept");
+                await App.Current.MainPage.DisplayAlert(
+                    "Error", 
+                    "User or password incorrect.", 
+                    "Accept");
                 Password = string.Empty;
                 return;
             }
@@ -113,7 +122,10 @@ namespace MyLeasing.Prism.ViewModels
             {
                 IsEnabled = false;
                 IsRunning = true;
-                await App.Current.MainPage.DisplayAlert("Error", "Problem with user data, call 1-800-EAT-SHIT.", "Accept");
+                await App.Current.MainPage.DisplayAlert(
+                    "Error", 
+                    "Problem with user data, call 1-800-EAT-SHIT.", 
+                    "Accept");
                 Password = string.Empty;
                 return;
             }
@@ -123,9 +135,10 @@ namespace MyLeasing.Prism.ViewModels
             {
                 {"owner", owner}
             };
+
             await _navigationService.NavigateAsync("PropertiesPage", parameters);
-            IsEnabled = false;
-            IsRunning = true;
+            IsEnabled = true;
+            IsRunning = false;
         }
     }
 }

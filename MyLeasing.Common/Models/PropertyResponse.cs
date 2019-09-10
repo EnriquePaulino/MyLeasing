@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace MyLeasing.Common.Models
 {
@@ -29,5 +30,9 @@ namespace MyLeasing.Common.Models
         public ICollection<PropertyImageResponse> PropertyImages { get; set; }
 
         public ICollection<ContractResponse> Contracts { get; set; }
+
+        public string FirsImage => PropertyImages == null || PropertyImages.Count == 0
+            ? "https://myleasing.azurewebsites.net//images/Properties/noimage.png"
+            : PropertyImages.FirstOrDefault().ImageUrl;
     }
 }
