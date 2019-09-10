@@ -2,90 +2,110 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="MyLeasing.Prism.Views.PropertiesPage"
+             BackgroundColor="Silver"
              Title="{Binding Title}">
     <StackLayout
         Padding="10">
         <ListView
             HasUnevenRows="True"
-            ItemsSource="{Binding Properties}">
+            ItemsSource="{Binding Properties}"
+            SeparatorVisibility="None">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <Image
-                                Grid.Column="0"
-                                Source="{Binding FirsImage}"
-                                WidthRequest="100"/>
-                            <Grid
-                                Grid.Column="1">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="*"/>
-                                </Grid.ColumnDefinitions>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
-                                </Grid.RowDefinitions>
-                                <Label
-                                    Grid.Row="0"
-                                    Grid.Column="0"
-                                    FontAttributes="Bold"
-                                    Text="Neighborhood"/>
-                                <Label
-                                    Grid.Row="0"
-                                    Grid.Column="1"
-                                    Text="{Binding Neighborhood}"/>
-                                <Label
-                                    Grid.Row="1"
-                                    Grid.Column="0"
-                                    FontAttributes="Bold"
-                                    Text="Address"/>
-                                <Label
-                                    Grid.Row="1"
-                                    Grid.Column="1"
-                                    Text="{Binding Address}"/>
-                                <Label
-                                    Grid.Row="2"
-                                    Grid.Column="0"
-                                    FontAttributes="Bold"
-                                    Text="Price"/>
-                                <Label
-                                    Grid.Row="2"
-                                    Grid.Column="1"
-                                    Text="{Binding Price, StringFormat='{0:C2}'}"/>
-                                <Label
-                                    Grid.Row="3"
-                                    Grid.Column="0"
-                                    FontAttributes="Bold"
-                                    Text="Type"/>
-                                <Label
-                                    Grid.Row="3"
-                                    Grid.Column="1"
-                                    Text="{Binding PropertyType}"/>
-                                <Label
-                                    Grid.Row="4"
-                                    Grid.Column="0"
-                                    FontAttributes="Bold"
-                                    Text="Is Available"/>
-                                <Label
-                                    Grid.Row="4"
-                                    Grid.Column="1"
-                                    IsEnabled="false"
-                                    Text="{Binding IsAvailable}"/>
-                            </Grid>
-                        </Grid>
+                        <Frame
+                            CornerRadius="20"
+                            Margin="0,0,0,5">
+                            <StackLayout>
+                                <ffimageloading:CachedImage
+	                                    Grid.Column="0"
+	                                    Source="{Binding FirsImage}"
+	                                    LoadingPlaceholder= "LoaderImage"
+	                                    ErrorPlaceholder= "ErrorImage"
+	                                    CacheDuration= "50"
+	                                    RetryCount= "3"
+	                                    RetryDelay= "600"
+	                                    DownsampleToViewSize = "true"
+	                                    WidthRequest="200"/>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid
+                                        Grid.Column="0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <Label
+                                            Grid.Row="0"
+                                            Grid.Column="0"
+                                            FontAttributes="Bold"
+                                            Text="Neighborhood"/>
+                                        <Label
+                                            Grid.Row="0"
+                                            Grid.Column="1"
+                                            Text="{Binding Neighborhood}"/>
+                                        <Label
+                                            Grid.Row="1"
+                                            Grid.Column="0"
+                                            FontAttributes="Bold"
+                                            Text="Address"/>
+                                        <Label
+                                            Grid.Row="1"
+                                            Grid.Column="1"
+                                            Text="{Binding Address}"/>
+                                        <Label
+                                            Grid.Row="2"
+                                            Grid.Column="0"
+                                            FontAttributes="Bold"
+                                            Text="Price"/>
+                                        <Label
+                                            Grid.Row="2"
+                                            Grid.Column="1"
+                                            Text="{Binding Price, StringFormat='{0:C2}'}"/>
+                                        <Label
+                                            Grid.Row="3"
+                                            Grid.Column="0"
+                                            FontAttributes="Bold"
+                                            Text="Type"/>   
+                                        <Label
+                                            Grid.Row="3"
+                                            Grid.Column="1"
+                                            Text="{Binding PropertyType}"/>
+                                        <Label
+                                            Grid.Row="4"
+                                            Grid.Column="0"
+                                            FontAttributes="Bold"
+                                            Text="Is Available?"
+                                            VerticalOptions="Center"/>
+                                        <CheckBox
+                                            Grid.Row="4"
+                                            Grid.Column="1"
+                                            HorizontalOptions="Start"
+                                            IsEnabled="False"
+                                            IsChecked="{Binding IsAvailable}"/>
+                                    </Grid>
+                                    <Image
+                                        Grid.Column="1"
+                                        Source="ic_more_vert"/>
+                                </Grid>
+                            </StackLayout>
+                        </Frame>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
-        </ListView>        
+        </ListView>
     </StackLayout>
 </ContentPage>
