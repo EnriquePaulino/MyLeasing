@@ -28,11 +28,11 @@
                             CacheDuration= "50"
                             DownsampleToViewSize = "true"
                             ErrorPlaceholder= "ErrorImage"
-                            HeightRequest="300"
+                            HeightRequest="200"
                             LoadingPlaceholder= "LoaderImage"
                             RetryCount= "3"
                             RetryDelay= "600"
-                            Source="{Binding Image}"/>
+                            Source="{Binding Property.FirsImage}"/>
                     <!--</DataTemplate>
                 </syncfusion:SfRotator.ItemTemplate>
             </syncfusion:SfRotator>-->

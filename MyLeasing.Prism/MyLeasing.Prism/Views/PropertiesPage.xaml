@@ -10,6 +10,7 @@
     <StackLayout
         Padding="10">
         <ListView
+            BackgroundColor="Transparent"
             HasUnevenRows="True"
             ItemsSource="{Binding Properties}"
             SeparatorVisibility="None">
@@ -24,15 +25,15 @@
                             </Frame.GestureRecognizers>
                             <StackLayout>
                                 <ffimageloading:CachedImage
-	                                    Grid.Column="0"
-	                                    Source="{Binding FirsImage}"
-	                                    LoadingPlaceholder= "LoaderImage"
-	                                    ErrorPlaceholder= "ErrorImage"
-	                                    CacheDuration= "50"
-	                                    RetryCount= "3"
-	                                    RetryDelay= "600"
-	                                    DownsampleToViewSize = "true"
-	                                    WidthRequest="200"/>
+                                    Aspect="AspectFit"
+                                    CacheDuration= "50"
+                                    DownsampleToViewSize = "true"
+                                    ErrorPlaceholder= "ErrorImage"
+                                    HeightRequest="200"
+                                    LoadingPlaceholder= "LoaderImage"
+                                    RetryCount= "3"
+                                    RetryDelay= "600"
+                                    Source="{Binding FirsImage}"/>	                                    
                                 <Grid>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*"/>
