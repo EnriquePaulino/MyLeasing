@@ -48,6 +48,7 @@ namespace MyLeasing.Web.Controllers
         // GET: Owners/Create
         public IActionResult Create()
         {
+            var view = new AddUserViewModel { RoleId = 2 };
             return View();
         }
 

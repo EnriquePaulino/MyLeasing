@@ -6,7 +6,6 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
-    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.9" />
   </ItemGroup>
 
@@ -16,6 +15,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MyLeasing.Common\MyLeasing.Common.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Views\Account\Register.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
   </ItemGroup>
 
 </Project>
